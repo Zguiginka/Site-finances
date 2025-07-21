@@ -1,0 +1,137 @@
+body {
+    background: linear-gradient(135deg, #faf6ff 0%, #f5f5fa 100%);
+    margin: 0;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px;
+    background: #fff;
+    box-shadow: 0 2px 16px 0 rgba(90,0,120,0.06);
+    border-radius: 18px;
+    margin: 24px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 36px;
+    height: 36px;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #8A05BE; /* Roxo Nubank */
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-link {
+    text-decoration: none;
+    color: #444;
+    padding: 8px 22px;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab-link.active, .tab-link:hover {
+    background: #8A05BE;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 8px 0 #8a05be22;
+}
+
+.tit1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.card{
+
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px 0 #ddd;
+    padding: 24px;
+    margin-bottom: 24px;
+    width: fit-content;
+    transition: 
+        box-shadow 0.2s cubic-bezier(.4,2,.6,1), 
+        transform 0.18s cubic-bezier(.4,2,.6,1);
+    cursor: pointer;
+}
+.card:hover{
+    box-shadow: 1px 4px 4px 0 #bb6bd926;
+    transform: translateY(-0.5px) scale(1.0005);    
+}
+.titcard{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #232323;
+}
+.valcardRx{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8A05BE;
+}
+.valcardR{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d72638;
+}
+.valcardV{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1fbf63;
+}
+.datcard{
+    font-size: 1rem;
+    color: #8A8A8A;
+    margin-top: 4px;
+}
+
+.rside{
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow:-2px 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: fit-content;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+form input , form button{
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
