@@ -117,13 +117,35 @@ body {
     margin-top: 4px;
 }
 
-.rside{
+.right-side{
     flex: 1;
     background-color: #ffffff;
     border-radius: 15px;
     padding: 20px;
     box-shadow:-2px 0 10px rgba(0, 0, 0, 0.1); 
     max-width: fit-content;
+    max-height: fit-content;
+    margin: 0px 36px;
+}
+
+.left-side{
+    
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow:-2px 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: fit-content;
+    max-height: fit-content;
+    margin: 0px 36px;
+    align-items: flex-start;
+    
+}
+.container {
+
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    margin: 12px;
 }
 
 form{
@@ -134,4 +156,156 @@ form input , form button{
     margin: 10px 0;
     padding: 10px;
     font-size: 16px;
+    
+}
+#parcelado-fields {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #8A05BE;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.opt{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #00000045;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+.botao{
+    
+    color: white;
+    font-weight: bold;
+    background-color: #8A05BE;
+    border: #444;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.botao:hover{
+    translate: 0px 2px;
+    background-color: #8A05BE75;
+}
+
+/* estilo do filtro  */
+.botefilt{
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-direction: row;
+}
+.botefilt select{
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border 0.2s ease;
+
+}
+.filtro-form select:hover {
+  border-color: #8A05BE;
+}
+
+.filterbot {
+  background-color: #8A05BE;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filterbot:hover {
+  background-color: #6a0495;
+}
+/* fim do estilo do filtro */
+.cardgasto{
+    background-color:#8A05BE35;
+    border-radius: 5px;
+    padding: 5px 5px;
+    box-shadow:-2px 0 10px rgba(0, 0, 0, 0.1); 
+
+}
+.caixainfos{
+    display: flex;
+    align-items: center;
+}
+
+
+    
+.categorias{
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.valorcats{
+    text-align: right;
+    padding-left: 90px;
+}
+
+.produtos{
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    color: #444;
+}
+.prodvalor{
+    text-align: left;
+    padding:0px 80px;
+}
+.divisoria {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 0px;
 }

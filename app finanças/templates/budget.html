@@ -29,14 +29,14 @@
     </ul>
 
 </section>
-<script>
-    let tcar = {{ tcar }};
-    function total(){
-        const elem = document.getElementById("totcor");
-        elem.style.color = tcar>0 ? "#1fbf63" : tcar<0 ? "#d72638":"#8A05BE";
-        document.getElementById("tottxt").textContent = tcar > 0 ? 'Restam R$' + tcar : 'R$' + tcar + ' a mais que o planejado';
-    }
-    total();
+    <script>
+        let tcar = {{ tcar }};
+        function total(){
+            const elem = document.getElementById("totcor");
+            elem.style.color = tcar>0 ? "#1fbf63" : tcar<0 ? "#d72638":"#8A05BE";
+            document.getElementById("tottxt").textContent = tcar > 0 ? 'Restam R$' + tcar : 'R$' + tcar + ' a mais que o planejado';
+        }
+        total();
     </script>
 </body>
 
