@@ -40,6 +40,13 @@
       <label>Valor:</label>
       <input class="opt" id="valorprod" type="number" step="0.01" name="valor" required />
       
+      <label>Método:</label>
+      <select class="opt" name="metodo" required >
+        <option value="">Selecione um método</option>
+        <option value="">Crédito</option>
+        <option value="">Pix</option>
+      </select>
+
       <label class="switch">
         <input type="checkbox" id="parc-check" />
         <span class="slider round"></span>
@@ -73,10 +80,10 @@
     <form method="GET" action="/gastos" class="botefilt">
       <label for="filtro_mes">Filtro por mês: </label>
       <select name="filtro_messel" id="filtro_mes">
-        <option value="">Todos</option>
-        {% for mes in meses_disp%}
-        <option value="{{mes}}">
-          {{mes}}
+          <option value="">Todos</option>
+        {% for mes,label in meses_disp%}
+        <option value="{{mes}}" {% if mes == filtromes %}selected{% endif %}>
+          {{label}}
         </option>
         {% endfor %}
       </select>
@@ -88,11 +95,18 @@
     <!-- painel gastos e categorias -->
     <div class = caixainfos>
       <ul>
-        {% for cat, dados in resumo.items() %}
+        {% for cat, dadoscat2 in resumo.items() %}
         <div class="categorias">
           <span class="titcats"> {{cat}}</span>
-          <span class="valorcats">R$ {{dados.total | round(2)}}</span>
+          <span class="valorcats">R$ {{dadoscat2.total | round(2)}}</span>
         </div>
+
+        {% for cat2 ,dados in dadoscat2.subcategorias.items() %}
+        <div class="categorias2"> 
+          <span  class="titcats">  {{cat2}}  </span>
+          <span class="valorcats2">R$ {{ dados.total | round(2)}} </span>
+        </div>
+
         {% for item in dados.gastos %}
         <div class="produtos"> 
           <span>{{item.descricao}}</span>
@@ -103,12 +117,20 @@
           <hr class="divisoria">          
         </div>
         <br>
-        <br>
+        <br>  
         
         {% endfor %}
+        {% endfor %}
       </ul>
+      <br>
+      <br>
     </div>
     <!-- fim do painel -->
+
+    <!-- total geral -->
+    <div class="totfim">
+      <span class="categorias">Total: R$ {{totalgasto | round(2)}}</span>
+    </div>
 
   </div>
 

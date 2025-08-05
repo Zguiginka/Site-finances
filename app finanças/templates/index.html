@@ -25,6 +25,20 @@
 </section>
 
 <section>
+    <div class="filthome">
+    <form method="GET" class="botefilt">
+      <label for="filtro_mes">Filtro por mês: </label>
+      <select name="filtro_messel" id="filtro_mes">
+        <option value="">Todos</option>
+            {% for mes,label in meses_disp%}
+        <option value="{{mes}}" {% if mes == filtromes %}selected{% endif %}>
+             {{label}}
+        </option>
+            {% endfor %}
+      </select>
+      <button class="filterbot" type="submit">Filtrar</button>
+    </form>
+    </div>
     <ul>
         <div class="card">
             <div class="titcard">Salario</div>
@@ -33,7 +47,7 @@
         </div>
         <div class="card">
             <div class="titcard">Crédito</div>
-            <div class="valcardR">{{g1}}</div>
+            <div class="valcardR">R${{totalgasto | round(2)}}</div>
             <div class="datcard">01 de jul de 2025</div>
         </div>
         <div class="card">
