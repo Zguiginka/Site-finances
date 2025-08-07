@@ -12,3 +12,11 @@ class Gastos(db.Model):
     metodo = db.Column(db.String(25))
     idparc = db.Column(db.Integer)
     numparcela = db.Column(db.Integer)
+
+class Ganhos(db.Model):
+    __tablename__ = 'ganhos'
+    id=db.Column(db.Integer,primary_key=True)
+    data = db.Column(db.Date)
+    descricao = db.Column(db.String(100))
+    valor = db.Column(db.Float)
+    categoria = db.Column(db.String(50))

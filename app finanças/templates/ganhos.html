@@ -24,16 +24,13 @@
   <div class="container">
 
   <div class="right-side">
-    <h2>Novo Gasto</h2>
-    <form method="POST" action="/gastos">
+    <h2>Novo Ganho</h2>
+    <form method="POST" action="/ganhos">
       <label id="datalabel">Data:</label>
       <input class="opt" type="date" name="data" required />
       
       <label>Categoria:</label>
       <input class="opt" type="text" name="cat1" required />
-      
-      <label>Categoria Específica:</label>
-      <input class="opt" type="text" name="cat2"/>
       
       <label>Produto:</label>
       <input class="opt" type="text" name="produto" required />
@@ -41,34 +38,6 @@
       <label>Valor:</label>
       <input class="opt" id="valorprod" type="number" step="0.01" name="valor" required />
       
-      <label>Método:</label>
-      <select class="opt" name="metodo" required >
-        <option value="">Selecione um método</option>
-        <option value="">Crédito</option>
-        <option value="">Pix</option>
-      </select>
-
-      <label class="switch">
-        <input type="checkbox" id="parc-check" />
-        <span class="slider round"></span>
-      </label>
-      Parcelado?
-      
-      <div id="parcelado-fields" style="display: none; margin-top: 10px">
-        <label>Tipo de entrada:</label>
-        <select class="opt" id="tipo-entrada" name="tipo_entrada">
-          <option value="total">Valor Total</option>
-          <option value="1parc">Valor 1 Parcela</option>
-        </select>
-        
-        <label>Quantidade de parcelas:</label>
-        <input class="opt" type="number" id="qtd_parcelas" name="qtd_parcelas"  value="" />
-        
-        
-        <button class="botao" id="botsim">Simular</button>
-        
-        <div id="resultado" style="margin-top: 10px; font-size: 0.9rem; color: #555;"></div>
-      </div>
       
       <button class="botao" type="submit">Adicionar</button>
     </form>
@@ -78,7 +47,7 @@
   <div class="left-side">
     <h2>Gastos por Categoria</h2>
     <div>
-    <form method="GET" action="/gastos" class="botefilt">
+    <form method="GET" action="/ganhos" class="botefilt">
       <label for="filtro_mes">Filtro por mês: </label>
       <select name="filtro_messel" id="filtro_mes">
           <option value="">Todos</option>

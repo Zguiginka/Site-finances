@@ -4,6 +4,7 @@ from models import db,Gastos
 from routes.home import home_bp
 from routes.gastos import gastos_bp
 from routes.budget import budget_bp
+from routes.ganhos import ganhos_bp
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ db.init_app(app)
 app.register_blueprint(home_bp)
 app.register_blueprint(gastos_bp)
 app.register_blueprint(budget_bp)
+
 
 
 

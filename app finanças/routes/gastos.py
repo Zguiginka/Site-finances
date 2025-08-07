@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,redirect,Blueprint
+from flask import Flask, render_template,request,redirect,Blueprint,flash
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from sqlalchemy import extract
@@ -46,12 +46,7 @@ def gastos():
                     
                     for i in range(numparc):
                         count = i + 1
-                        idparcelasdb = db.session.query(db.func.max(Gastos.idparc)).scalar()
-                        if idparcelasdb == None:
-                            idparcelas = 0
-                        else:
-                            idparcelas = int(idparcelasdb+1)
-                        print(idparcelas)
+                        idparcelas = (db.session.query(db.func.max(Gastos.idparc)).scalar() or 0) + 1
                         nameparc = fr"{str(count)}/{str(numparc)}"
                         datasparc = dataobj + relativedelta(months = i)
 
@@ -120,3 +115,20 @@ def gastos():
 
     return render_template('gastos.html',totalgasto=totalgasto,filtromes=mes, resumo=resumo,gastos=gastos,meses_disp=meses_disp)
     
+@gastos_bp.route('/gastos/editar/<int:id>', methods=['GET', 'POST'])
+def editar_gasto(id):
+    gasto = Gastos.query.get_or_404(id)
+
+    if request.method == 'POST':
+        gasto.data = datetime.strptime(request.form['data'], '%Y-%m-%d').date()
+        gasto.descricao = request.form['descricao']
+        gasto.valor = float(request.form['valor'])
+        gasto.cat1 = request.form['cat1']
+        gasto.cat2 = request.form['cat2']
+        gasto.metodo = request.form['metodo']
+        
+        db.session.commit()
+        flash('Gasto atualizado com sucesso!', 'success')
+        return redirect('/gastos')
+
+    return render_template('editar_gasto.html', gasto=gasto)
