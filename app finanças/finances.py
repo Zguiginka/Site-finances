@@ -17,6 +17,7 @@ db.init_app(app)
 app.register_blueprint(home_bp)
 app.register_blueprint(gastos_bp)
 app.register_blueprint(budget_bp)
+app.register_blueprint(ganhos_bp)
 
 
 

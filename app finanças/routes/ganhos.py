@@ -3,7 +3,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from sqlalchemy import extract
 from models import db,Ganhos
-from utils import bdbuy,get_meses_disp,inject_globals,get_meses_disp_gan
+from utils import bdbuy,get_meses_disp,inject_globals,get_meses_disp_gan,bdwon
 
 
 ganhos_bp = Blueprint('ganhos',__name__)
@@ -48,3 +48,4 @@ def ganhos_view():
 
 
         resumo,totalgasto = bdwon(ganhos)
+    return render_template("ganhos.html",resumo=resumo,totalgasto=totalgasto,ganhos=ganhos)

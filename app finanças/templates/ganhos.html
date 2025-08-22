@@ -45,7 +45,7 @@
 
   <!-- filtro de meses -->
   <div class="left-side">
-    <h2>Gastos por Categoria</h2>
+    <h2>Ganhos por Categoria</h2>
     <div>
     <form method="GET" action="/ganhos" class="botefilt">
       <label for="filtro_mes">Filtro por mês: </label>
@@ -65,21 +65,14 @@
     <!-- painel gastos e categorias -->
     <div class = caixainfos>
       <ul>
-        {% for cat, dadoscat2 in resumo.items() %}
+        {% for dadoscat,dados  in resumo.items() %}
         <div class="categorias">
-          <span class="titcats"> {{cat}}</span>
-          <span class="valorcats">R$ {{dadoscat2.total | round(2)}}</span>
-        </div>
-
-        {% for cat2 ,dados in dadoscat2.subcategorias.items() %}
-        <div class="categorias2"> 
-          <span  class="titcats">  {{cat2}}  </span>
-          <span class="valorcats2">R$ {{ dados.total | round(2)}} </span>
+          <span class="titcats"> {{dadoscat}}</span>
+          <span class="valorcats">R$ {{dados.total | round(2)}}</span>
         </div>
 
         {% for item in dados.gastos %}
         <div class="produtos"> 
-          <span onclick="window.location.href='{{ url_for('gastos.editar_gasto',id=item.id)}}'" style="cursor: pointer;">
             {{item.descricao}}</span>
           <span class="prodvalor">R$ {{item.valor | round(2)}} ({{item.data}})</span>
         </div>
@@ -89,8 +82,6 @@
         </div>
         <br>
         <br>  
-        
-        {% endfor %}
         {% endfor %}
       </ul>
       <br>
